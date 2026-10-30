@@ -1,1 +1,6 @@
-<h1>test3</h1>
+<x-layouts::drink-move>
+
+    <h1>Walking Calculator</h1>
+
+
+</x-layouts::drink-move>
