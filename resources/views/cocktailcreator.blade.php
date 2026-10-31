@@ -1,4 +1,4 @@
-<x-layouts::drink-move>
+<x-layouts::drink-move title="Cocktail Creator">
 
     <h1>Make your own Cocktails</h1>
 

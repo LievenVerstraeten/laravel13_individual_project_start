@@ -1,4 +1,4 @@
-<x-layouts::drink-move>
+<x-layouts::drink-move title="Walking Calculator">
 
     <h1>Walking Calculator</h1>
 

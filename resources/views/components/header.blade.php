@@ -1,10 +1,13 @@
-<div class="flex">
-<header class="bg-red-600 shadow">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+<header class="w-full bg-green-700 shadow">
+    <nav class="grid w-full grid-cols-3 items-center px-4 py-5">
+        <div class="flex justify-center">
         <a href="{{ route('home') }}" class="text-xl font-bold">
             Drink & Move
         </a>
-        <h1>{{$slot}}</h1>
+        </div>
+        <div class="flex justify-center">
+        <h1 class="text-xl font-bold">{{$slot}}</h1>
+        </div>
 
         <div class="flex gap-6">
             <a href="{{ route('walkcalculator') }}">Calculator</a>
@@ -13,4 +16,3 @@
         </div>
     </nav>
 </header>
-</div>

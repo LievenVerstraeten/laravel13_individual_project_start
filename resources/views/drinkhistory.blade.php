@@ -1,6 +1,6 @@
-<x-layouts::drink-move>
+<x-layouts::drink-move title="Drinks History">
 
-    <h1>Drinks History</h1>
+    <h1>Your previous drinks</h1>
 
 
 </x-layouts::drink-move>
