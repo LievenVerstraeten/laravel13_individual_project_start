@@ -1,4 +1,4 @@
-<header class="w-full bg-green-700 shadow">
+<header class="w-full bg-primary-green text-warm-white shadow">
     <nav class="grid w-full grid-cols-3 items-center px-4 py-5">
         <div class="flex justify-center">
         <a href="{{ route('home') }}" class="text-xl font-bold">

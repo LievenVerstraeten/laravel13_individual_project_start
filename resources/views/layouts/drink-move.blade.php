@@ -8,11 +8,11 @@
     <title>{{ $title ?? 'Drinks and Move' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="min-h-screen bg-gray-100 text-gray-900">
+<body class="flex min-h-screen flex-col bg-warm-white text-dark-green">
 
 <x-header>{{ $title ?? ''}}</x-header>
 
-<main class="mx-auto w-3/5 py-8">
+<main class="mx-auto py-8 flex-1 w-full md:w-4/5 lg:w-3/5">
     {{$slot}}
 </main>
 
