@@ -13,6 +13,22 @@ return new class extends Migration
     {
         Schema::create('drinks', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('category_id')
+                ->constrained()
+                ->restrictOnDelete();
+
+            $table->foreignId('user_id')
+                ->nullable()
+                ->constrained()
+                ->nullOnDelete();
+
+            $table->string('name');
+            $table->string('brand')->nullable();
+
+            $table->decimal('calories_per_100ml', 8, 2);
+            $table->decimal('alcohol_percentage', 5, 2)->default(0);
+
             $table->timestamps();
         });
     }
