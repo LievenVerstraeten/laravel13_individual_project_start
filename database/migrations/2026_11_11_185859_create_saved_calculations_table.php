@@ -13,6 +13,20 @@ return new class extends Migration
     {
         Schema::create('saved_calculations', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('user_id')
+                ->constrained()
+                ->cascadeOnDelete();
+
+            $table->string('name')->nullable();
+
+            $table->decimal('total_calories', 10, 2);
+            $table->decimal('walking_distance_km', 8, 2)->nullable();
+            $table->decimal('cycling_distance_km', 8, 2)->nullable();
+
+            $table->unsignedInteger('walking_minutes')->nullable();
+            $table->unsignedInteger('cycling_minutes')->nullable();
+
             $table->timestamps();
         });
     }
