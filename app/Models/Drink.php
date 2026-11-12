@@ -2,35 +2,29 @@
 
 namespace App\Models;
 
-use Database\Factories\DrinkFactory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+#[Fillable([
+    'category_id',
+    'user_id',
+    'name',
+    'calories_per_100ml',
+    'alcohol_percentage'
+])]
 class Drink extends Model
 {
-    /** @use HasFactory<DrinkFactory> */
-    use HasFactory;
-
-    protected $fillable = [
-        'category_id',
-        'user_id',
-        'name',
-        'brand',
-        'calories_per_100ml',
-        'alcohol_percentage',
-    ];
-
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class)->withDefault();
     }
 
-    public function creator(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class)->withDefault();
     }
 
     public function calculationItems(): HasMany
@@ -41,7 +35,14 @@ class Drink extends Model
     public function cocktails(): BelongsToMany
     {
         return $this->belongsToMany(Cocktail::class)
-            ->withPivot('quantity_ml')
-            ->withTimestamps();
+            ->withPivot('quantity_ml');
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'calories_per_100ml' => 'decimal:2',
+            'alcohol_percentage' => 'decimal:2',
+        ];
     }
 }

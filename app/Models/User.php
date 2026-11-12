@@ -62,8 +62,8 @@ class User extends Authenticatable implements MustVerifyEmail, PasskeyUser
     }
 
 
-    // from here on Im writing the things user has foreign keys to
-    public function createdDrinks(): HasMany
+    // from here on I'm writing the things user has foreign keys to
+    public function drinks(): HasMany
     {
         return $this->hasMany(Drink::class);
     }
